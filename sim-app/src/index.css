@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body {
+    background: #080A0C;
+    color: #EDE9E0;
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+  * { box-sizing: border-box; }
+  ::-webkit-scrollbar { width: 0; background: transparent; }
+}
+
+@layer components {
+
+  .btn-primary {
+    width: 100%;
+    font-weight: 600;
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    background: linear-gradient(155deg, #D4BE74 0%, #B89E4A 100%);
+    color: #06080A;
+    box-shadow:
+      0 0 0 1px rgba(212,190,116,0.25),
+      0 0 24px rgba(185,158,74,0.22),
+      0 4px 20px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .btn-primary:active {
+    transform: scale(0.97);
+    box-shadow:
+      0 0 0 1px rgba(212,190,116,0.4),
+      0 0 36px rgba(185,158,74,0.4),
+      0 2px 8px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  .btn-secondary {
+    width: 100%;
+    font-weight: 500;
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-size: 15px;
+    color: #EDE9E0;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    background: rgba(237,233,224,0.03);
+    border: 1px solid rgba(237,233,224,0.09);
+    box-shadow: inset 0 1px 0 rgba(237,233,224,0.05);
+  }
+  .btn-secondary:active { transform: scale(0.97); opacity: 0.6; }
+
+  .card {
+    border-radius: 16px;
+    padding: 20px;
+    background: linear-gradient(155deg, #14141C 0%, #0E0E14 100%);
+    border: 1px solid rgba(237,233,224,0.11);
+    box-shadow:
+      inset 0 1px 0 rgba(237,233,224,0.06),
+      0 8px 32px rgba(0,0,0,0.45),
+      0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .screen {
+    min-height: 100dvh;
+    background: #080A0C;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 512px;
+    margin: 0 auto;
+    padding-top: max(32px, env(safe-area-inset-top));
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+  }
+
+  .creation-screen {
+    min-height: 100dvh;
+    background: #080A0C;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 512px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding-top: max(32px, env(safe-area-inset-top));
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+  }
+
+  .step-indicator {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    color: rgba(201,183,106,0.5);
+  }
+
+  .screen-heading {
+    font-size: 26px;
+    font-weight: 600;
+    color: #EDE9E0;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .screen-subtext {
+    font-size: 14px;
+    color: #58606E;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .selectable-card {
+    border-radius: 16px;
+    padding: 20px;
+    background: linear-gradient(155deg, #14141C 0%, #0E0E14 100%);
+    border: 1px solid rgba(237,233,224,0.11);
+    box-shadow: inset 0 1px 0 rgba(237,233,224,0.06), 0 8px 32px rgba(0,0,0,0.45);
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    text-align: left;
+  }
+  .selectable-card:active { transform: scale(0.98); }
+  .selectable-card.selected {
+    background: linear-gradient(155deg, #1A1A24 0%, #141420 100%);
+    border-color: rgba(201,183,106,0.5);
+    box-shadow:
+      0 0 32px rgba(201,183,106,0.12),
+      inset 0 1px 0 rgba(201,183,106,0.1),
+      0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .text-glow {
+    color: #C9B76A;
+    text-shadow: 0 0 24px rgba(201,183,106,0.5);
+  }
+
+  .stat-orb {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, rgba(201,183,106,0.10) 0%, rgba(8,10,12,0.6) 70%);
+    border: 1px solid rgba(201,183,106,0.22);
+    animation: orbPulse 3s ease-in-out infinite;
+  }
+
+  .hud-rule {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(237,233,224,0.08), transparent);
+  }
+
+  .narrative-feed { scroll-behavior: smooth; }
+
+  /* Range slider */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.08);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #E8D485, #9C8A44);
+    border: 2px solid rgba(201,183,106,0.5);
+    box-shadow: 0 0 12px rgba(201,183,106,0.45), 0 2px 6px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  input[type="range"]::-webkit-slider-thumb:active {
+    box-shadow: 0 0 20px rgba(201,183,106,0.7), 0 2px 6px rgba(0,0,0,0.5);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #E8D485, #9C8A44);
+    border: 2px solid rgba(201,183,106,0.5);
+    box-shadow: 0 0 12px rgba(201,183,106,0.45);
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: linear-gradient(
+      to right,
+      rgba(201,183,106,0.5) 0%,
+      rgba(201,183,106,0.5) var(--fill, 50%),
+      rgba(255,255,255,0.08) var(--fill, 50%)
+    );
+    height: 4px;
+    border-radius: 2px;
+  }
+}
+
+@keyframes orbPulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(201,183,106,0.15), 0 0 48px rgba(201,183,106,0.05); }
+  50%       { box-shadow: 0 0 48px rgba(201,183,106,0.35), 0 0 80px rgba(201,183,106,0.12); }
+}
+@keyframes fadeIn  { from { opacity: 0 } to { opacity: 1 } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: translateY(0) } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-8px) } to { opacity: 1; transform: translateX(0) } }
